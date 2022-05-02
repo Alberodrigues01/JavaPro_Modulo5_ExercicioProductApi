@@ -8,14 +8,14 @@ public class OrderItem {
     private Integer quantity;
     private Double discount;
 
-    public OrderItem( Integer id, Integer quantity, Double discount) {
-        this.id = id; ;
+    public OrderItem( Product product, Integer quantity, Double discount) {
+        this.product = product; ;
         this.quantity = quantity;
         this.discount = discount;
 
     }
-
     public Double totalPrice(){
+
         return product.getPriceWithDiscount(discount) * quantity;
     }
 

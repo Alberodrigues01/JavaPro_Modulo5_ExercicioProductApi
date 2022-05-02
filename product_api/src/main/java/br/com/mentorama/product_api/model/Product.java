@@ -1,5 +1,9 @@
 package br.com.mentorama.product_api.model;
 
+
+import org.springframework.stereotype.Component;
+
+
 public class Product {
 
     private Integer id;

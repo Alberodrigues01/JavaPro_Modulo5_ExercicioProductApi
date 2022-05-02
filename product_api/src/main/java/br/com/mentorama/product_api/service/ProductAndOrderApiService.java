@@ -11,17 +11,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProductApiService {
+public class ProductAndOrderApiService {
 
     @Autowired
-
     private ProductRepository productRepository;
 
-    private OrderItem orderItem;
-
+    @Autowired
     private Order order;
 
     private OrderCalculator orderCalculator;
+
+    private OrderItem orderItem;
 
 
     //1) Listando todos os produtos
@@ -44,18 +44,21 @@ public class ProductApiService {
 
             order.postOrder(orderItem);
             productRepository.reduceStock(orderItem.getId(), orderItem.getQuantity());
-            //return orderItem.getId();
 
         }
 
     //5) Listando as OrderItem:
-    public List<OrderItem> getItems(){
+    public List<OrderItem> listItems(){
+
         return order.getItems();
     }
 
     //6) Obtendo o valor total de uma Ordem:
-    public Double  calculateOrder(){
-        return orderCalculator.getTotalOrder();
+    //Deve retornar o totalOrder especificado na Classe OrderCalculator método calculateOrder
+    public Double calculateOrder (Order order) {
+        return orderCalculator.calculateOrder(order);
     }
+
+
 
 }

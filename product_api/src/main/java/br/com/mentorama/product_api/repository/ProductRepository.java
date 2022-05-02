@@ -22,9 +22,9 @@ public class ProductRepository {
 
         this.products = new ArrayList<>();
 
-        Product prod1 = new Product(01 , "TV", 10, 3000.00,10.00 );
-        Product prod2 = new Product(02 , "Geladeira", 20 , 1500.00 , 15.00);
-        Product prod3 = new Product(03 , "Fogão", 30, 1000.00, 5.00);
+        Product prod1 = new Product(01 , "TV", 10, 3000.00,0.9 );
+        Product prod2 = new Product(02 , "Geladeira", 20 , 1500.00 , 0.9);
+        Product prod3 = new Product(03 , "Fogão", 30, 1000.00, 0.9);
 
         products.add(prod1);
         products.add(prod2);

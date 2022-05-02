@@ -7,27 +7,17 @@ import java.util.List;
 public class OrderCalculator {
 
     Double totalOrder;
-
+    //Deve obter o somatório dos totalPrice
     public Double calculateOrder (final Order order) {
-
-        this.totalOrder = order.getItems().stream()
-                .mapToDouble(OrderItem::totalPrice)
-                .sum();
-        return totalOrder;
+        return totalOrder = order.getItems().stream()
+               .mapToDouble(OrderItem::totalPrice)
+               .sum();
     }
 
-
-    public Double calculateMultipleOrders(List<Order> orders){
-        return orders.stream()
-                .mapToDouble(order -> calculateOrder(order))
-                .sum();
+    public Double calculateMultipleOrders(final List<Order> orders){
+       return orders.stream()
+              .mapToDouble(order -> calculateOrder(order))
+              .sum();
     }
 
-    public Double getTotalOrder() {
-        return totalOrder;
-    }
-
-    public void setTotalOrder(Double totalOrder) {
-        this.totalOrder = totalOrder;
-    }
-}
+  }
