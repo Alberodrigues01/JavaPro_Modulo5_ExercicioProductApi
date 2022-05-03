@@ -57,7 +57,6 @@ public class ProductAndOrderApiService {
         return order.getItems();
     }
 
-
     //6) Obtendo o valor total de uma Ordem:
     //Deve retornar o totalOrder especificado na Classe OrderCalculator método calculateOrder:
     public Double orderCalculator() {

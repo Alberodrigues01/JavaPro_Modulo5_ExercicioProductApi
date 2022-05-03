@@ -1,7 +1,6 @@
 package br.com.mentorama.product_api.model;
 
 
-
 public class Product {
 
     private Integer id;
