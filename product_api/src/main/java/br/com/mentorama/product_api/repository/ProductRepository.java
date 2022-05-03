@@ -1,16 +1,12 @@
 package br.com.mentorama.product_api.repository;
 
 import br.com.mentorama.product_api.model.Product;
-import ch.qos.logback.core.joran.conditional.ElseAction;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Assert;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class ProductRepository {

@@ -1,22 +1,26 @@
 package br.com.mentorama.product_api.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class OrderItem {
 
+    @Autowired
     private Product product;
+
     private Integer id;
     private Integer quantity;
     private Double discount;
 
-    public OrderItem( Product product, Integer quantity, Double discount) {
-        this.product = product; ;
+    public OrderItem(Product product, Integer quantity, Double discount) {
+        this.product = product;
         this.quantity = quantity;
         this.discount = discount;
 
     }
+
     public Double totalPrice(){
 
-        return product.getPriceWithDiscount(discount) * quantity;
+        return (product.getPriceWithDiscount(discount) * quantity);
     }
 
     public Integer getQuantity() {
@@ -35,10 +39,10 @@ public class OrderItem {
         this.discount = discount;
     }
 
-    public Integer getId(){
-        return id;}
-
-    public void setId(Integer id){
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
         this.id = id;
     }
 

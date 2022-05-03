@@ -1,8 +1,6 @@
 package br.com.mentorama.product_api.model;
 
 
-import org.springframework.stereotype.Component;
-
 
 public class Product {
 
@@ -14,7 +12,7 @@ public class Product {
 
     private Double price;
 
-    // mDP corresponde a maxDiscoutPercentage:
+    // mDP corresponde à maxDiscoutPercentage:
     private Double mDP;
 
     public Product(Integer id, String name, Integer mQA, Double price, Double mDP) {

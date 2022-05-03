@@ -13,6 +13,8 @@ import java.util.List;
 @Service
 public class ProductAndOrderApiService {
 
+    Double totalOrder;
+
     @Autowired
     private ProductRepository productRepository;
 
@@ -22,6 +24,8 @@ public class ProductAndOrderApiService {
     private OrderCalculator orderCalculator;
 
     private OrderItem orderItem;
+
+    private Product product;
 
 
     //1) Listando todos os produtos
@@ -42,23 +46,23 @@ public class ProductAndOrderApiService {
     //4) Cadastrando uma ordem de venda:
     public void postOrder(OrderItem orderItem) {
 
-            order.postOrder(orderItem);
-            productRepository.reduceStock(orderItem.getId(), orderItem.getQuantity());
+        order.postOrder(orderItem);
+        productRepository.reduceStock(orderItem.getId(), orderItem.getQuantity());
 
-        }
+    }
 
     //5) Listando as OrderItem:
-    public List<OrderItem> listItems(){
+    public List<OrderItem> listItems() {
 
         return order.getItems();
     }
 
+
     //6) Obtendo o valor total de uma Ordem:
-    //Deve retornar o totalOrder especificado na Classe OrderCalculator método calculateOrder
-    public Double calculateOrder (Order order) {
-        return orderCalculator.calculateOrder(order);
+    //Deve retornar o totalOrder especificado na Classe OrderCalculator método calculateOrder:
+    public Double orderCalculator() {
+
+      this.orderCalculator = new OrderCalculator();
+            return orderCalculator.calculateOrder(order);
     }
-
-
-
 }

@@ -20,20 +20,17 @@ public class Order {
     }
 
     //1) Adicionando item a uma Ordem de Venda:
-    public Integer postOrder(OrderItem orderItem) {
+    public void postOrder(OrderItem orderItem) {
 
         this.items.add(orderItem);
-           return orderItem.getId();
-
-    }
+               }
 
     //2) Obtendo os items de uma Ordem de Venda:
     public List<OrderItem> getItems() {
-
         return items;
     }
 
-    }
+ }
 
 
 
