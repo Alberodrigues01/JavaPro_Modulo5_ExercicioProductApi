@@ -9,6 +9,8 @@ import java.util.List;
 
 public class OrderCalculator {
 
+    OrderItem orderItem;
+
     Double totalOrder;
 
 

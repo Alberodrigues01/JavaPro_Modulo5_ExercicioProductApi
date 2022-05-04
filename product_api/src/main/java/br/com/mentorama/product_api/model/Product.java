@@ -1,7 +1,9 @@
 package br.com.mentorama.product_api.model;
 
 
+
 public class Product {
+
 
     private Integer id;
     private String name;
@@ -21,6 +23,7 @@ public class Product {
         this.price = price;
         this.mDP = mDP;
     }
+
 
     //1)Obter preço com disconto:
     public Double getPriceWithDiscount(final Double discount) {
@@ -46,6 +49,9 @@ public class Product {
       return quantity = mQA;
 
     }
+
+    public Product (){};
+
     public Integer getId() {
         return id;
     }

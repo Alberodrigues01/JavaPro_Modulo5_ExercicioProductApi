@@ -2,6 +2,7 @@ package br.com.mentorama.product_api.repository;
 
 import br.com.mentorama.product_api.model.OrderCalculator;
 import br.com.mentorama.product_api.model.OrderItem;
+import br.com.mentorama.product_api.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -14,9 +15,8 @@ public class Order {
 
     private List<OrderItem> items;
 
-    public Order(List<OrderItem> items) {
-        this.items = items;
-
+    public Order() {
+        this.items = new ArrayList<>();
     }
 
     //1) Adicionando item a uma Ordem de Venda:
@@ -29,6 +29,8 @@ public class Order {
     public List<OrderItem> getItems() {
         return items;
     }
+
+
 
  }
 

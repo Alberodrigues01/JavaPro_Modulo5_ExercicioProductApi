@@ -1,5 +1,6 @@
 package br.com.mentorama.product_api.repository;
 
+import br.com.mentorama.product_api.model.OrderItem;
 import br.com.mentorama.product_api.model.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,8 @@ import java.util.List;
 @Repository
 public class ProductRepository {
 
+
+    private Product product;
 
     private  final List<Product> products;
 
