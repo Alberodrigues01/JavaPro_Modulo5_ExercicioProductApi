@@ -1,79 +1,69 @@
 package br.com.mentorama.product_api.model;
 
-
-
 public class Product {
 
-
-    private Integer id;
-    private String name;
-
-    // mQD corresponde à maxQuantityAvailable:
-    private Integer mQA;
-
+    private Integer productID;
+    private String nameProduct;
+    private Integer quantityInStock;
     private Double price;
+    private Double maxDiscountPercentage;
 
-    // mDP corresponde à maxDiscoutPercentage:
-    private Double mDP;
-
-    public Product(Integer id, String name, Integer mQA, Double price, Double mDP) {
-        this.id = id;
-        this.name = name;
-        this.mQA = mQA;
+    public Product(Integer productID, String nameProduct, Integer quantityInStock, Double price, Double maxDiscountPercentage) {
+        this.productID = productID;
+        this.nameProduct = nameProduct;
+        this.quantityInStock = quantityInStock;
         this.price = price;
-        this.mDP = mDP;
+        this.maxDiscountPercentage = maxDiscountPercentage;
     }
 
-
-    //1)Obter preço com disconto:
+    //1)Obter o preço aplicando a regra da Percentagem Máxima
+    // de Desconto permitida (maxDiscountPercentage):
     public Double getPriceWithDiscount(final Double discount) {
-        if (discount > mDP) {
-            return price * (1 - mDP);
+        if (discount > maxDiscountPercentage) {
+            return price * (1.00 - maxDiscountPercentage);
         } else {
-            return price * (1 - discount);
+            return price * (1.00 - discount);
         }
     }
 
-    //2) Adicionar uma quantidade de um produto:
+    //2) Adiciona uma quantidade de um produto:
     public int AddQuantity(Integer quantity) {
 
-        return (mQA += quantity);
+        return (quantityInStock += quantity);
     }
 
-    //3) Reduzindo uma quantidade de um produto:
+    //3) Reduzuz uma quantidade de um produto:
     public int ReduceQuantity(Integer quantity) {
 
-        if (mQA >= quantity) {
-            return (mQA -= quantity);
+        if (quantityInStock >= quantity) {
+            return (quantityInStock -= quantity);
         }
-      return quantity = mQA;
+      return (quantityInStock - quantityInStock);
 
     }
 
-    public Product (){};
-
-    public Integer getId() {
-        return id;
+   public Integer getProductID() {
+        return productID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProductID(Integer productID) {
+        this.productID = productID;
     }
 
-    public String getName() {
-        return name;
+    public String getNameProduct() {
+        return nameProduct;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
     }
 
-    public Integer getmQA() {
-        return mQA;
+    public Integer getQuantityInStock() {
+        return quantityInStock;
     }
 
-    public void setmQA(Integer mQA) {
-        this.mQA = mQA;
+    public void setQuantityInStock(Integer quantityInStock) {
+        this.quantityInStock = quantityInStock;
     }
 
     public Double getPrice() {
@@ -84,12 +74,12 @@ public class Product {
         this.price = price;
     }
 
-    public Double getmDP() {
-        return mDP;
+    public Double getMaxDiscountPercentage() {
+        return maxDiscountPercentage;
     }
 
-    public void setmDP(Double mDP) {
-        this.mDP = mDP;
+    public void setMaxDiscountPercentage(Double maxDiscountPercentage) {
+        this.maxDiscountPercentage = maxDiscountPercentage;
     }
 }
 

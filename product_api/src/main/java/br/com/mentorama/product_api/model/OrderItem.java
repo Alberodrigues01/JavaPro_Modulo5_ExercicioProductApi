@@ -1,28 +1,26 @@
 package br.com.mentorama.product_api.model;
 
-
 public class OrderItem {
 
-
     private Product product;
-
-    private Integer id;
     private Integer quantity;
     private Double discount;
 
-    public OrderItem(Product product, Integer quantity, Double discount) {
+    public OrderItem(Product product , Integer quantity, Double discount) {
         this.product = product;
         this.quantity = quantity;
         this.discount = discount;
-
     }
 
-      public Double totalPrice(){
-
-       OrderItem orderItem = new OrderItem(product , quantity, discount);
-
-       return product.getPriceWithDiscount(discount);
-    }
+      //4) Calcula o preço final de um Item da venda aplicando a regra da
+      //   do preço com desconto * quantidade disponível em estoque (quantityInStock):
+      public Double totalPrice() {
+          if (quantity <= product.getQuantityInStock()) {
+              return (product.getPriceWithDiscount(discount) * quantity);
+          } else {
+              return (product.getPriceWithDiscount(discount)* product.getQuantityInStock());
+          }
+      }
 
     public Integer getQuantity() {
         return quantity;
@@ -39,13 +37,5 @@ public class OrderItem {
     public void setDiscount(Double discount){
         this.discount = discount;
     }
-
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
 
 }
