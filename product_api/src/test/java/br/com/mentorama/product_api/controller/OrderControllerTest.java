@@ -14,11 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.hasValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -80,8 +78,8 @@ public class OrderControllerTest {
                     .andExpect(jsonPath("$",hasValue(5400.00)));
 
             //=============================================================================
-            //Não reconhece os parametros JSON informados acima entre as linhas 30 e 42.Retorna
-            // que o valor da Order é <0.0> em vez deveroa ser <5400.00>
+            //Reconhece os parametros JSON informados acima entre as linhas 30 e 42. Retorna
+            // que o valor da Order e valida com o valor esperado em hasValue.
             //=============================================================================
         }
 }
